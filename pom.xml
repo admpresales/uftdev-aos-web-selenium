@@ -13,6 +13,8 @@
         <!-- deprecated -->
         <!--<se.lft.ver>14.3.0</se.lft.ver>--> <!-- the leanft selenium extension that ships with LeanFT -->
         <lft.ver>14.50.0</lft.ver>
+        <webdrivermanager.ver>3.0.0</webdrivermanager.ver>
+        <slf4j.ver>1.7.25</slf4j.ver>
     </properties>
     <dependencies>
         <dependency>
@@ -54,9 +56,17 @@
             <version>${lft.ver}</version>
         </dependency>
         <dependency>
+            <!-- https://github.com/bonigarcia/webdrivermanager#webdrivermanager-as-java-dependency
+                   https://stackoverflow.com/questions/7450416/selenium-2-chrome-driver
+             -->
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>3.0.0</version>
+            <version>${webdrivermanager.ver}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>${slf4j.ver}</version>
         </dependency>
     </dependencies>
 
