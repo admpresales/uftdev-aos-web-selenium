@@ -31,10 +31,9 @@ public class SeleniumTest  {
     //private static final String ADV_WEBSITE  = "http://www.advantageonlineshopping.com";
 
     //You will need to have an account created in AOS and will need to supply the credentials
+    //These are known defaults as of 2018/sep/12
     private static final String ADV_LOGIN    = "Mercury"; //"insert login name here";
     private static final String ADV_PASSWORD = "Mercury"; //"insert password here";
-//    private static final String DRIVER_VER = "2.41";
-//    private static final String DRIVER_PATH="/"+DRIVER_VER+"/chromedriver";
 
     private static WebDriver driver;
     public SeleniumTest() {
@@ -43,16 +42,7 @@ public class SeleniumTest  {
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-//        File f = new File(System.getProperty("user.dir")+DRIVER_PATH);
-//        if(f.exists() && !f.isDirectory()) {
-//            // If you don't want to specify the path to the chrome driver, you will need to make sure it is part of the system path
-//            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+DRIVER_PATH);
-//            System.out.println("Using driver: "+System.getProperty("user.dir")+DRIVER_PATH);
-//        } else {
-//            System.out.println("Chrome driver not found in: "+System.getProperty("user.dir")+DRIVER_PATH);
-//            System.out.println("Will attempt use the chrome driver that is in the system path.  If one doesn't exist, you will get an error on execution");
-//        }
-
+        WebDriverManager.chromedriver().forceCache();
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
