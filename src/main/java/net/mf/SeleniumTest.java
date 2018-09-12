@@ -12,6 +12,7 @@ import org.openqa.selenium.*;
 import com.hpe.leanft.selenium.By;
 import com.hpe.leanft.selenium.Utils;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -44,7 +45,9 @@ public class SeleniumTest  {
     public static void setUpBeforeClass() throws Exception {
         WebDriverManager.chromedriver().forceCache();
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("disable-infobars");
+        driver = new ChromeDriver(options);
 
         // The following is what is needed to add the LeanFT reporting to your custom test framework.
         // In this case a basic Selenium enabled test using the Junit framework
