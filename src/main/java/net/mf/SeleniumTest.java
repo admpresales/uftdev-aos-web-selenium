@@ -29,8 +29,8 @@ public class SeleniumTest  {
     //private static final String ADV_WEBSITE  = "http://www.advantageonlineshopping.com";
 
     //You will need to have an account created in AOS and will need to supply the credentials
-    private static final String ADV_LOGIN    = "mercury1"; //"insert login name here";
-    private static final String ADV_PASSWORD = "Password1"; //"insert password here";
+    private static final String ADV_LOGIN    = "Mercury"; //"insert login name here";
+    private static final String ADV_PASSWORD = "Mercury"; //"insert password here";
     private static final String DRIVER_VER = "2.41";
     private static final String DRIVER_PATH="/"+DRIVER_VER+"/chromedriver";
 
@@ -151,13 +151,13 @@ public class SeleniumTest  {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path)));
         Utils.highlight(driver.findElement(By.xpath(path)), 1000);
         driver.findElement(By.xpath(path)).clear();
-        driver.findElement(By.xpath(path)).sendKeys("mercury1");
+        driver.findElement(By.xpath(path)).sendKeys(ADV_LOGIN);
 
         path = "//*[@id=\"paymentMethod\"]/div/div[2]/sec-form/sec-view[2]/div/input";
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(path)));
         Utils.highlight(driver.findElement(By.xpath(path)), 1000);
         driver.findElement(By.xpath(path)).clear();
-        driver.findElement(By.xpath(path)).sendKeys("Password1");
+        driver.findElement(By.xpath(path)).sendKeys(ADV_PASSWORD+"1");
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.visibleText("PAY NOW")));
         Utils.highlight(driver.findElement(By.visibleText("PAY NOW")), 1000);
