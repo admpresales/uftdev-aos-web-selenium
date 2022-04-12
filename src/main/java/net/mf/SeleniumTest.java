@@ -49,35 +49,24 @@ public class SeleniumTest  {
         options.addArguments("disable-infobars");
         driver = new ChromeDriver(options);
 
-        // The following is what is needed to add the LeanFT reporting to your custom test framework.
         // In this case a basic Selenium enabled test using the Junit framework
         // This is base on the LeanFT 14.03 release https://admhelp.microfocus.com/leanft/en/latest/HelpCenter/Content/HowTo/CustomFrameworks.htm
-        try{
-            ModifiableSDKConfiguration config = new ModifiableSDKConfiguration();
-            config.setServerAddress(new URI("ws://localhost:5095"));
-            SDK.init(config);
+        ModifiableSDKConfiguration config = new ModifiableSDKConfiguration();
+        config.setServerAddress(new URI("ws://localhost:5095"));
+        SDK.init(config);
 
-            ModifiableReportConfiguration rptConfig = new ModifiableReportConfiguration();
-            rptConfig.setSnapshotsLevel(CaptureLevel.All);
-            rptConfig.setTitle("Selenium UFT Pro (LeanFT) Run Results");
-            rptConfig.setDescription("Example of incorporating UFT Pro (LeanFT) reporting with tests driven using Selenium automation");
-            Reporter.init(rptConfig);
-        }
-        catch(Exception e){
-        }
+        ModifiableReportConfiguration rptConfig = new ModifiableReportConfiguration();
+        rptConfig.setSnapshotsLevel(CaptureLevel.All);
+        Reporter.init(rptConfig);
     }
 
     @AfterClass
-    public static void tearDownAfterClass() {
+    public static void tearDownAfterClass() throws Exception {
         //Clean up and dispose of the driver
         //Good explanation of close, quit, dispose here http://stackoverflow.com/questions/15067107/difference-between-webdriver-dispose-close-and-quit
         driver.quit();
-        try {
-            Reporter.generateReport();
-            SDK.cleanup();
-        }
-        catch (Exception e){
-        }
+        Reporter.generateReport();
+        SDK.cleanup();
     }
 
     @Before
