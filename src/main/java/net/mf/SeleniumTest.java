@@ -43,7 +43,6 @@ public class SeleniumTest  {
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-        WebDriverManager.chromedriver().forceCache();
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("disable-infobars");
