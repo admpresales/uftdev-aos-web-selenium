@@ -1,4 +1,4 @@
-# uftdev-aos-web-selenium
+# uftdev-aos-web-se
 An example of running a Selenium Test through UFT Developer (Formerly LeanFT)
 
 This project assumes you have followed the LeanFT set up instructions found on https://admhelp.microfocus.com/leanft/en/15.0/HelpCenter/Content/HowTo/Sel_LeanFT4SelT.htm
@@ -40,3 +40,4 @@ The above assumes:
 - all the relavant *.jar files are in the same directory
 - to get junit.jar and hamcrest-core.jar if not on your system already https://github.com/junit-team/junit4/wiki/Download-and-Install
 
+##### Prior to UFT renaming in 2019 was called aos-web-lft4se
